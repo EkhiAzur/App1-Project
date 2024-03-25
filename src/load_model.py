@@ -1,5 +1,7 @@
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
-
+from transformers import AutoTokenizer, AutoModel
+from transformers.modeling_outputs import SequenceClassifierOutput
+import logging
+import torch
 
 class PoolingClassificationModel(torch.nn.Module):
     
@@ -122,6 +124,6 @@ def load_model(runArgs, trainingArgs):
         add_prefix_space=True
     )
 
-    model = PoolingClassificationModel( runArgs.model_name, runArgs.pooling_strategy="cls")
+    model = PoolingClassificationModel(runArgs.model_name, pooling_strategy=runArgs.pooling_strategy)
 
     return model, tokenizer
