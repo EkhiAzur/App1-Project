@@ -1,0 +1,5 @@
+pytorch-metric-learning
+pandas
+datasets
+pytorch
+transformers
